@@ -5,9 +5,8 @@ from django.db import models
 
 
 class PerDayAnalyticsBase(models.Model):
-    user_id = models.CharField(max_length=256)
     date = models.DateField()
 
     class Meta:
         abstract = True
-
+        ordering = ('-date',)
