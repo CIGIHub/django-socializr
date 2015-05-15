@@ -82,7 +82,7 @@ class FacebookConfig(SocializrConfig):
                 analytics, _ = FacebookAnalytics.objects.update_or_create(
                     object = object,
                     date = date,
-                    defaults = data[date]
+                    defaults = data[date],
                 )
 
 

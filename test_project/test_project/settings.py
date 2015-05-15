@@ -38,6 +38,7 @@ INSTALLED_APPS = (
     'django.contrib.staticfiles',
     'socializr',
     'socializr.contrib.facebooklizr',
+    'socializr.contrib.youtubelizr',
 )
 
 MIDDLEWARE_CLASSES = (
@@ -83,3 +84,8 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/1.7/howto/static-files/
 
 STATIC_URL = '/static/'
+
+# YouTubeLizr
+
+SOCIALIZR_YOUTUBE_CREDS_PATH = os.path.join(BASE_DIR, 'creds')
+
