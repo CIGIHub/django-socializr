@@ -88,4 +88,4 @@ STATIC_URL = '/static/'
 # YouTubeLizr
 
 SOCIALIZR_YOUTUBE_CREDS_PATH = os.path.join(BASE_DIR, 'creds')
-
+SOCIALIZR_FACEBOOK_ACCESS_TOKEN = ''

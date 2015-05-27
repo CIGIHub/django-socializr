@@ -64,3 +64,4 @@ class YouTubeConfig(SocializrConfig):
                 date=datetime.now().date(),
             )
 
+register(YouTubeConfig)

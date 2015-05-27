@@ -16,7 +16,7 @@ def get_setting(name, required=False):
         return value
 
     if hasattr(settings, name):
-        return getattr(setting, name)
+        return getattr(settings, name)
 
     if required:
         raise ImproperlyConfigured(
