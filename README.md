@@ -15,7 +15,8 @@ Requirements: `facepy`
 
 Settings:
 
-* SOCIALIZR_FACEBOOK_ACCESS_TOKEN
+* SOCIALIZR_FACEBOOK_APP_ID
+* SOCIALIZR_FACEBOOK_APP_SECRET
 
 ### contrib.youtublizr
 
