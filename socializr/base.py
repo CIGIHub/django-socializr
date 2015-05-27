@@ -37,3 +37,7 @@ def unregister(config_or_iterable):
         if config in _registry:
             _registry.remove(config)
 
+def get_socializr_configs():
+    global _registry
+    return _registry
+

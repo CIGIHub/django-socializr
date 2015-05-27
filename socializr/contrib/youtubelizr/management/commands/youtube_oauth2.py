@@ -7,7 +7,7 @@ from oauth2client.client import flow_from_clientsecrets
 from oauth2client.file import Storage
 from oauth2client.tools import run
 
-from socializr.contrib.youtublizr.utils import get_creds_path
+from socializr.contrib.youtubelizr.utils import get_creds_path
 
 
 class Command(BaseCommand):
