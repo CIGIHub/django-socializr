@@ -56,12 +56,14 @@ class YouTubeConfig(SocializrConfig):
 
             stats = items['items'][0]['statistics']
 
-            YouTubeAnalytics.objects.create(
+            YouTubeAnalytics.objects.update_or_create(
                 channel=channel,
-                views=stats[u'viewCount'],
-                subscribers=stats[u'subscriberCount'],
-                video_count=stats[u'videoCount'],
                 date=datetime.now().date(),
+                defaults=dict(
+                    views=stats[u'viewCount'],
+                    subscribers=stats[u'subscriberCount'],
+                    video_count=stats[u'videoCount'],
+                )
             )
 
 register(YouTubeConfig)
