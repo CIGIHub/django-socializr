@@ -1,12 +1,22 @@
+from __future__ import absolute_import
+from __future__ import unicode_literals
+
 from django.db import models
+from django.utils.encoding import python_2_unicode_compatible
 
 from socializr.models import PerDayAnalyticsBase
 
+
+@python_2_unicode_compatible
 class FacebookObject(models.Model):
-    '''
+    """
     Currently only Pages are tested
-    '''
+    """
+    name = models.CharField(max_length=256)
     object_id = models.CharField(max_length=256)
+
+    def __str__(self):
+        return self.name
 
 
 class FacebookAnalytics(PerDayAnalyticsBase):

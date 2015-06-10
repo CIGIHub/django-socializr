@@ -47,9 +47,10 @@ def update(d, u):
 
 class FacebookConfig(SocializrConfig):
     def collect(self):
-        access_token = get_setting('FACEBOOK_ACCESS_TOKEN', required=True)
+        app_id = get_setting('FACEBOOK_APP_ID', required=True)
+        secret_key = get_setting('FACEBOOK_APP_SECRET', required=True)
 
-        graph = GraphAPI(access_token)
+        graph = GraphAPI.for_application(app_id, secret_key)
 
         # Yesterday
         date = (now() - datetime.timedelta(1)).date()
