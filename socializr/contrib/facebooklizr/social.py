@@ -47,10 +47,9 @@ def update(d, u):
 
 class FacebookConfig(SocializrConfig):
     def collect(self):
-        app_id = get_setting('FACEBOOK_APP_ID', required=True)
-        secret_key = get_setting('FACEBOOK_APP_SECRET', required=True)
+        token = get_setting('FACEBOOK_TOKEN', required=True)
 
-        graph = GraphAPI.for_application(app_id, secret_key)
+        graph = GraphAPI(token)
 
         # Yesterday
         date = (now() - datetime.timedelta(1)).date()
@@ -58,7 +57,7 @@ class FacebookConfig(SocializrConfig):
         for object in FacebookObject.objects.all():
             data = {}
             data[date] = {}
-            data[date]['page_likes']  = graph.get('/{}/'.format(object.object_id))['likes']
+            data[date]['page_likes'] = graph.get('/{}/'.format(object.object_id))['likes']
 
             update(data, fetch_time_data(
                 graph,
@@ -77,7 +76,6 @@ class FacebookConfig(SocializrConfig):
                 '/{}/insights/page_engaged_users/'.format(object.object_id),
                 'people_engaged',
             ))
-
 
             for date in data:
                 analytics, _ = FacebookAnalytics.objects.update_or_create(
