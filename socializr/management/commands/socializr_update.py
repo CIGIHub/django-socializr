@@ -19,7 +19,6 @@ class Command(BaseCommand):
 
         for config_class in configs:
             config_obj = config_class()
-            self.stdout.write("Processing {}".format(config_class.__name__))
             try:
                 config_obj.collect()
             except Exception:
